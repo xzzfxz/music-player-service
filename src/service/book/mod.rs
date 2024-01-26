@@ -32,6 +32,10 @@ pub fn delete_repeat() -> Result<()> {
             for item in raw_list.iter() {
                 let source_item: SourceItem = serde_json::from_value(item.clone())?;
                 let ori_url = source_item.book_source_url;
+                if ori_url == "" {
+                    continue;
+                }
+
                 let arr: Vec<&str> = ori_url.split("#").collect();
                 let mut url = arr[0];
                 if url.chars().last() == Some('/') {
