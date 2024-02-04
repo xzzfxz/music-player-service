@@ -14,6 +14,5 @@ pub async fn delete_repeat() -> impl Responder {
         Ok(_) => println!("去重成功"),
         Err(info) => println!("发生错误: {:#?}", info),
     }
-    // println!("书源去重: {:#?}", params);
     "Ok".to_string()
 }
